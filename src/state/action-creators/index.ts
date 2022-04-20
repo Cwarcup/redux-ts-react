@@ -3,14 +3,12 @@ import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
-// action creator
-// will use redux-thunk to make async call
-
-export const searchRepo = (term: string) => {
+export const searchRepositories = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.SEARCH_REPOSITORIES,
     });
+
     try {
       const { data } = await axios.get(
         'https://registry.npmjs.org/-/v1/search',
@@ -29,7 +27,7 @@ export const searchRepo = (term: string) => {
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
         payload: names,
       });
-    } catch (err) {
+    } catch (err: any) {
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_ERROR,
         payload: err.message,

@@ -1,6 +1,5 @@
-// make an emun for the action types
 export enum ActionType {
-  SEARCH_REPOSITORIES = 'SEARCH_REPOSITORIES',
-  SEARCH_REPOSITORIES_SUCCESS = 'SEARCH_REPOSITORIES_SUCCESS',
-  SEARCH_REPOSITORIES_ERROR = 'SEARCH_REPOSITORIES_ERROR',
+  SEARCH_REPOSITORIES = 'search_repositories',
+  SEARCH_REPOSITORIES_SUCCESS = 'search_repositories_success',
+  SEARCH_REPOSITORIES_ERROR = 'search_repositories_error',
 }
