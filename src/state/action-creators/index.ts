@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
@@ -6,7 +7,7 @@ import { Action } from '../actions';
 // will use redux-thunk to make async call
 
 export const searchRepo = (term: string) => {
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.SEARCH_REPOSITORIES,
     });
@@ -28,7 +29,7 @@ export const searchRepo = (term: string) => {
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
         payload: names,
       });
-    } catch (err: any) {
+    } catch (err) {
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_ERROR,
         payload: err.message,
